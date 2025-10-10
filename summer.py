@@ -25,7 +25,7 @@ def extract_amount_from_pdf(pdf_path):
 
 
 if __name__ == "__main__":
-    folder = "/Users/lorne/Downloads/2025-09 发票/个人发票/"
+    folder = "/Users/lorne/Downloads/2025-09 发票/个人发票/"    # 存放电子发票的文件夹
     pdf_files = [f for f in os.listdir(folder) if f.lower().endswith(".pdf")]
 
     total_amount = 0.0  # 用 total_amount 更清晰

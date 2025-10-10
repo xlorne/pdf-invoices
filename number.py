@@ -24,7 +24,7 @@ def extract_invoice_number(pdf_path):
         return None
 
 if __name__ == "__main__":
-    folder = "/Users/lorne/Downloads/2025-09 发票/个人发票/"
+    folder = "/Users/lorne/Downloads/2025-09 发票/个人发票/"    # 存放电子发票的文件夹
     pdf_files = [f for f in os.listdir(folder) if f.lower().endswith(".pdf")]
 
     invoice_numbers = []
