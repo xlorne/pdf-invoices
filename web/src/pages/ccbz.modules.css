@@ -1,0 +1,71 @@
+body {
+    font-family: SimSun, 宋体, serif;
+    margin: 40px;
+}
+
+.mtable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 14px;
+}
+
+.mtable th, .mtable td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.date_field {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-line {
+    /*display: inline-block;*/
+    width: 150px;
+    /*border-bottom: 1px solid black;*/
+    margin: 0 5px;
+}
+
+/* 修正：左侧竖排文字只占第一列，不跨行 */
+.vertical_cell {
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    width: 5px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    white-space: pre;
+    text-align: center;
+    vertical-align: top;
+}
+
+.signature-line {
+    /*margin-top: 30px;*/
+    /*border-bottom: 1px solid black;*/
+    width: 100%;
+}
+
+.date-line {
+    margin-top: 10px;
+    text-align: right;
+}
