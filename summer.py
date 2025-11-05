@@ -13,6 +13,7 @@ def extract_amount_from_pdf(pdf_path):
         patterns = [
             r"￥\s*([\d,]+\.\d{2})",   # 火车票的提取
             r"[（(]小写[)）]\s*[¥￥]\s*([\d,]+\.\d{2})",  # 小写金额，兼容全角半角括号和空格/制表符
+            r"[（(]\s*小\s*写\s*[)）].{0,30}?([\d,]+\.\d{2})",  # 小写金额，兼容全角半角括号和空格/制表符
         ]
         for p in patterns:
             match = re.search(p, text.replace(" ", ""), re.IGNORECASE)
@@ -25,13 +26,14 @@ def extract_amount_from_pdf(pdf_path):
 
 
 if __name__ == "__main__":
-    folder = "/Users/lorne/Downloads/2025-09 发票/个人发票/"    # 存放电子发票的文件夹
+    folder = "/Users/lorne/Downloads/2025-10 发票/个人发票/"    # 存放电子发票的文件夹
     pdf_files = [f for f in os.listdir(folder) if f.lower().endswith(".pdf")]
 
     total_amount = 0.0  # 用 total_amount 更清晰
     for pdf in pdf_files:
         path = os.path.join(folder, pdf)
         amount = extract_amount_from_pdf(path)
+
         if amount:
             total_amount += float(amount)  # 字符串转浮点数累加
         print(f"{pdf}: 金额 = {amount or '未识别'}")

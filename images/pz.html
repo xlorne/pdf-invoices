@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>票证粘贴单</title>
+    <style>
+        body {
+            font-family: "SimSun", "宋体", serif;
+            padding: 20px;
+        }
+
+        .voucher-form {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin: 0;
+        }
+
+        .leader-signature {
+            position: absolute;
+            right: 30%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            padding-right: 10px;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+        }
+
+        .content-area {
+            height: 70vh;
+            padding: 20px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-item {
+            text-align: center;
+            width: 25%;
+        }
+
+        .footer-label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .footer-line {
+            width: 80%;
+            height: 1px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="voucher-form">
+        <div class="header">
+            <h1 class="title">票证粘贴单</h1>
+            <div class="leader-signature">领导签字</div>
+        </div>
+        <div class="line"></div>
+
+        <div class="content-area">
+            <!-- 这里可以粘贴票据 -->
+        </div>
+
+        <div class="footer">
+            <div class="footer-item">
+                <div class="footer-label">单据</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-label">张</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-label">金额</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-label">经手人</div>
+            </div>
+        </div>
+        <div class="line"></div>
+    </div>
+</body>
+</html>
+

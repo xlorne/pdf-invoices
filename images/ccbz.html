@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>出差补助申请表</title>
+    <style>
+        body {
+            font-family: SimSun, 宋体, serif;
+            margin: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .date-field {
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .input-line {
+            /*display: inline-block;*/
+            width: 150px;
+            /*border-bottom: 1px solid black;*/
+            margin: 0 5px;
+        }
+
+        /* 修正：左侧竖排文字只占第一列，不跨行 */
+        .vertical-cell {
+            position: absolute;
+            top: 120px;
+            left: 10px;
+            width: 5px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            white-space: pre;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .signature-line {
+            /*margin-top: 30px;*/
+            /*border-bottom: 1px solid black;*/
+            width: 100%;
+        }
+
+        .date-line {
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">出差补助申请表</div>
+
+<!-- 申请日期 -->
+<div class="date-field" contenteditable="true">
+    申请日期: <span class="input-line"></span> 年 <span class="input-line"></span> 月 <span class="input-line"></span> 日
+</div>
+
+<div class="vertical-cell">
+    <br>壹<br>贰<br>叁<br>肆<br>伍<br>陆<br>柒<br>捌<br>玖<br>拾<br>佰<br>仟<br>万<br>元<br>角<br>分<br>整
+</div>
+
+<!-- 主体表格 -->
+<table>
+    <tr>
+        <th style="width: 200px">申请人</th>
+        <td style="width: 500px" contenteditable="true"></td>
+        <th style="width: 200px">申请部门</th>
+        <td style="width: 500px" contenteditable="true"></td>
+    </tr>
+    <tr>
+        <th>申请项目</th>
+        <td colspan="4">
+            <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox"> 市内出差</label>
+                <label class="checkbox-label"><input type="checkbox"> 省内出差</label>
+                <label class="checkbox-label"><input type="checkbox"> 省外出差</label>
+                <label class="checkbox-label"><input type="checkbox"> 其他:</label>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>出差地点</th>
+        <td colspan="4" contenteditable="true"></td>
+    </tr>
+    <tr>
+        <th>预计出差时间</th>
+        <td colspan="4" contenteditable="true">
+            <span class="input-line"></span> 年 <span class="input-line"></span> 月 <span class="input-line"></span> 日至
+            <span class="input-line"></span> 年 <span class="input-line"></span> 月 <span class="input-line"></span>
+            日，共（<span class="input-line"></span>）天
+        </td>
+    </tr>
+    <tr>
+        <th>项目名称</th>
+        <td colspan="4" contenteditable="true"></td>
+    </tr>
+    <tr>
+        <td colspan="5" contenteditable="true">
+            出差补贴费用申请：<span class="input-line"></span> 人 <span class="input-line"></span> 天，每人每天 <span
+                class="input-line"></span> 元，共（<span class="input-line"></span>）元。<br><br>
+            大写：<span class="input-line" style="width: 90%;"></span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" contenteditable="true">
+            部门经理意见及签字：
+            <div class="signature-line"></div>
+            <div class="date-line">年 <span class="input-line"></span> 月 <span class="input-line"></span> 日</div>
+        </td>
+        <td colspan="2" rowspan="2" contenteditable="true">
+            企业负责人签字（盖章）：
+            <div class="signature-line"></div>
+            <div class="date-line">年 <span class="input-line"></span> 月 <span class="input-line"></span> 日</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" contenteditable="true">
+            财务人员签字（盖章）：
+            <div class="signature-line"></div>
+            <div class="date-line">年 <span class="input-line"></span> 月 <span class="input-line"></span> 日</div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>费用报销单</title>
+    <style>
+        body {
+            font-family: SimSun, 宋体, serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .top-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .top-info span {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .input-line {
+            display: inline-block;
+            width: 80px;
+            border-bottom: 1px solid black;
+            margin: 0 3px;
+            height: 18px;
+            vertical-align: middle;
+        }
+
+        .input-wide {
+            width: 120px;
+        }
+
+
+        .footer-signature {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .amount-header td {
+            padding: 2px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .amount-header .digit {
+            width: 20px;
+            text-align: center;
+        }
+
+        .currency-symbol {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* 修正：左侧竖排文字只占第一列，不跨行 */
+        .vertical-cell {
+            position: absolute;
+            top: 65px;
+            left: 10px;
+            width: 5px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            white-space: pre;
+            text-align: center;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">费用报销单</div>
+
+<!-- 报销日期 & 附件 -->
+<div class="top-info">
+    <div>
+        <span>报销日期：</span> <span>年 </span> 月 <span> 日</span>
+    </div>
+    <div>
+        <span>附件 <span></span> 张</span>
+    </div>
+</div>
+
+<div class="vertical-cell">
+    <br>壹<br>贰<br>叁<br>肆<br>伍<br>陆<br>柒<br>捌<br>玖<br>拾<br>佰<br>仟<br>万<br>元<br>角<br>分<br>整
+</div>
+<!-- 主表格 -->
+<table>
+    <tr>
+        <th style="width: 200px">费用项目</th>
+        <th style="width: 200px">类别</th>
+        <th style="width: 200px">金额</th>
+        <th style="width: 200px" rowspan="2" colspan="2">报销人<br>（签章）</th>
+        <th style="width: 200px" rowspan="2"></th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="2">部门经理<br>（签章）</td>
+        <td rowspan="2"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="2"> 企业负责人<br>（签章）</td>
+        <td rowspan="2"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>报销金额合计</th>
+        <td></td>
+        <td></td>
+        <td colspan="2">¥</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>核实金额（大写）</th>
+        <td colspan="5">
+            <span class="digit">佰</span>
+            <span class="digit">拾</span>
+            <span class="digit">万</span>
+            <span class="digit">仟</span>
+            <span class="digit">佰</span>
+            <span class="digit">拾</span>
+            <span class="digit">圆</span>
+            <span class="digit">角</span>
+            <span class="digit">分</span>
+            <span class="currency-symbol">¥</span>
+        </td>
+    </tr>
+    <tr>
+        <th style="width: 200px">借款数</th>
+        <td style="width: 200px"></td>
+        <th style="width: 200px">应退金额</th>
+        <td style="width: 200px"></td>
+        <th style="width: 200px">应补金额</th>
+        <td style="width: 200px"></td>
+    </tr>
+</table>
+
+<!-- 财务审核 & 出纳 -->
+<div class="footer-signature">
+    <span>财务审核</span>
+    <span>出纳</span>
+</div>
+
+</body>
+</html>

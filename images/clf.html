@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>差旅费报销单</title>
+    <style>
+        body {
+            font-family: "SimSun", "宋体", serif;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .date-section {
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            padding: 5px;
+        }
+
+        .section-header {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .sub-header {
+            font-weight: bold;
+        }
+
+
+        .amount-column {
+            width: 80px;
+        }
+
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .signature-box {
+            text-align: center;
+            width: 20%;
+            padding: 10px;
+        }
+
+        .signature-label {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .foot-content{
+            position: absolute;
+            right: 50px;
+            width: 70%;
+            top: 55%;
+        }
+
+        .left-content{
+            position: absolute;
+            top: 200px;
+            right: 10px;
+            transform: rotate(90deg);
+            font-size: 12px;
+        }
+
+        /* 修正：左侧竖排文字只占第一列，不跨行 */
+        .vertical-cell {
+            position: absolute;
+            top: 125px;
+            left: 20px;
+            width: 5px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            white-space: pre;
+            text-align: center;
+            vertical-align: top;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <div class="header">差旅费报销单</div>
+
+    <div class="date-section">
+        年 &nbsp;&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp; 日
+    </div>
+
+
+    <div class="vertical-cell">
+        <br>壹<br>贰<br>叁<br>肆<br>伍<br>陆<br>柒<br>捌<br>玖<br>拾<br>佰<br>仟<br>万<br>元<br>角<br>分<br>整
+    </div>
+
+    <table>
+        <tr>
+            <td colspan="2" class="section-header">工作部门</td>
+            <td colspan="5"></td>
+            <td rowspan="2" class="section-header">出差事由</td>
+            <td colspan="7" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="section-header">姓 &nbsp;&nbsp;&nbsp;&nbsp; 名</td>
+            <td colspan="5"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="section-header">出 &nbsp;&nbsp;&nbsp;&nbsp; 发</td>
+            <td colspan="3" class="section-header">到 &nbsp;&nbsp;&nbsp;&nbsp; 达</td>
+            <td rowspan="2" class="section-header">天数</td>
+            <td rowspan="2" class="section-header">车船费</td>
+            <td rowspan="2" class="section-header">旅馆费</td>
+            <td rowspan="2" class="section-header">邮电费</td>
+            <td rowspan="2" class="section-header">住勤费</td>
+            <td rowspan="2" class="section-header">市内<br/>交通费</td>
+            <td colspan="2" rowspan="2"></td>
+        </tr>
+
+        <tr>
+            <td class="sub-header">日期</td>
+            <td class="sub-header">时间</td>
+            <td class="sub-header">地点</td>
+            <td class="sub-header">日期</td>
+            <td class="sub-header">时间</td>
+            <td class="sub-header">地点</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td>时 分</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+
+        <tr>
+            <td colspan="6" class="section-header">合 &nbsp;&nbsp;&nbsp;&nbsp; 计</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="section-header">预领金额</td>
+            <td class="amount-column">¥</td>
+            <td colspan="7" class="section-header">共计金额（大写）</td>
+            <td class="amount-column">¥</td>
+            <td colspan="3" ></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="section-header">应退金额</td>
+            <td class="amount-column">¥</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="section-header">补助金额</td>
+            <td class="amount-column">¥</td>
+        </tr>
+    </table>
+
+    <div class="foot-content">
+        <div class="signature-area">
+        <div class="signature-box">
+            <div>部门</div>
+            <div class="signature-label">经理</div>
+        </div>
+        <div class="signature-box">
+            <div>财务</div>
+            <div class="signature-label">审核</div>
+        </div>
+        <div class="signature-box">
+            <div>企业<br>负责人</div>
+            <div class="signature-label"></div>
+        </div>
+        <div class="signature-box">
+            <div>报<br>销<br/>人</div>
+            <div class="signature-label"></div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- 右侧竖排文字 -->
+    <div class="left-content">
+        附单据 &nbsp;&nbsp;&nbsp;&nbsp; 张
+    </div>
+</div>
+</body>
+</html>
+
