@@ -70,14 +70,29 @@
             text-align: center;
         }
 
-        .amount-header .digit {
-            width: 20px;
-            text-align: center;
-        }
-
         .currency-symbol {
             font-weight: bold;
-            margin-left: 5px;
+            margin-left: 10px;
+        }
+
+        .money-data {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .money-title {
+            display: flex;
+            width: 30vw;
+        }
+
+        .money-content {
+            display: flex;
+            width: 60vw;
+        }
+
+        .digit {
+            width: 40px;
+            text-align: center;
         }
 
         /* 修正：左侧竖排文字只占第一列，不跨行 */
@@ -101,10 +116,11 @@
 <!-- 报销日期 & 附件 -->
 <div class="top-info">
     <div>
-        <span>报销日期：</span> <span>年 </span> 月 <span> 日</span>
+        <span>报销日期：</span>
+        <span contenteditable="true"><span> 年 </span> <span>月 </span> <span> 日</span></span>
     </div>
     <div>
-        <span>附件 <span></span> 张</span>
+        <span>附件 </span><span contenteditable="true"> &nbsp; 张</span>
     </div>
 </div>
 
@@ -118,66 +134,70 @@
         <th style="width: 200px">类别</th>
         <th style="width: 200px">金额</th>
         <th style="width: 200px" rowspan="2" colspan="2">报销人<br>（签章）</th>
-        <th style="width: 200px" rowspan="2"></th>
+        <th style="width: 200px" rowspan="2" contenteditable="true"></th>
     </tr>
     <tr>
-        <td>&nbsp;</td>
-        <td></td>
-        <td></td>
+        <td contenteditable="true">&nbsp;</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
         <td colspan="2" rowspan="2">部门经理<br>（签章）</td>
-        <td rowspan="2"></td>
+        <td rowspan="2" contenteditable="true"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
         <td colspan="2" rowspan="2"> 企业负责人<br>（签章）</td>
-        <td rowspan="2"></td>
+        <td rowspan="2" contenteditable="true"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
     </tr>
     <tr>
         <th>报销金额合计</th>
-        <td></td>
-        <td></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
         <td colspan="2">¥</td>
-        <td></td>
+        <td contenteditable="true"></td>
     </tr>
     <tr>
-        <th>核实金额（大写）</th>
-        <td colspan="5">
-            <span class="digit">佰</span>
-            <span class="digit">拾</span>
-            <span class="digit">万</span>
-            <span class="digit">仟</span>
-            <span class="digit">佰</span>
-            <span class="digit">拾</span>
-            <span class="digit">圆</span>
-            <span class="digit">角</span>
-            <span class="digit">分</span>
-            <span class="currency-symbol">¥</span>
+        <td colspan="7">
+            <div class="money-data">
+                <div class="money-title">核实金额（大写）</div>
+                <div class="money-content" contenteditable="true">
+                    <span class="digit">佰</span>
+                    <span class="digit">拾</span>
+                    <span class="digit">万</span>
+                    <span class="digit">仟</span>
+                    <span class="digit">佰</span>
+                    <span class="digit">拾</span>
+                    <span class="digit">圆</span>
+                    <span class="digit">角</span>
+                    <span class="digit">分</span>
+                    <span class="currency-symbol">¥</span>
+                </div>
+            </div>
         </td>
     </tr>
     <tr>
         <th style="width: 200px">借款数</th>
-        <td style="width: 200px"></td>
+        <td style="width: 200px" contenteditable="true"></td>
         <th style="width: 200px">应退金额</th>
-        <td style="width: 200px"></td>
+        <td style="width: 200px" contenteditable="true"></td>
         <th style="width: 200px">应补金额</th>
-        <td style="width: 200px"></td>
+        <td style="width: 200px" contenteditable="true"></td>
     </tr>
 </table>
 
