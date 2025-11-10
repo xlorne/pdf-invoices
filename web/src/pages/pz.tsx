@@ -13,6 +13,8 @@ const PZPage = () => {
     const currentDate = dayjs().format('YYYY年MM月DD日');
 
 
+    document.title = '票证粘贴单';
+
     const moneyToWords = (money: number) => {
         return numberToChineseRMB(money);
     }

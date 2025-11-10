@@ -37,7 +37,7 @@ body {
 }
 
 .content_area {
-    height: 70vh;
+    height: 60vh;
     padding: 20px 0;
     text-align: center;
     display: flex;
@@ -67,4 +67,10 @@ body {
     height: 1px;
     background-color: #333;
     margin: 0 auto;
+}
+
+@media print {
+    body {
+        print-color-adjust: exact;
+    }
 }

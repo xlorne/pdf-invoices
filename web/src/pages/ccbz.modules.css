@@ -69,3 +69,9 @@ body {
     margin-top: 10px;
     text-align: right;
 }
+
+@media print {
+    body {
+        print-color-adjust: exact;
+    }
+}

@@ -83,6 +83,7 @@ const FYPage = () => {
     const [data, setData] = useState<any>(null);
 
 
+    document.title = '费用报销单';
 
     const currentDate = dayjs().format('YYYY年MM月DD日');
 

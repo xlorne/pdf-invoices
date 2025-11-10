@@ -101,3 +101,9 @@ body {
     text-align: center;
     vertical-align: top;
 }
+
+@media print {
+    body {
+        print-color-adjust: exact;
+    }
+}
