@@ -24,7 +24,7 @@ app = FastAPI()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 挂载静态资源目录（HTML、CSS、JS）
-app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static", "static")), name="static")
 
 # 默认首页路由
 @app.get("/")
