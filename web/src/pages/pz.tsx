@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from './pz.modules.css';
-import { Button, Form, Input, Modal, Space } from "antd";
+import { Button, Form, Modal, Space } from "antd";
 import { EditOutlined, HomeOutlined, PrinterOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
+import PZForm from "./pz_form";
 
 const PZPage = () => {
 
@@ -29,17 +30,7 @@ const PZPage = () => {
                     setVisible(false);
                 }}
             >
-                <Form form={form}>
-                    <Form.Item name="name" label="经办人">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="number" label="数量">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="money" label="金额">
-                        <Input type="number" />
-                    </Form.Item>
-                </Form>
+                <PZForm form={form}/>
             </Modal>
 
             <Space>

@@ -1,4 +1,5 @@
-import { Button, Space } from "antd";
+import { EditOutlined } from "@ant-design/icons";
+import { Button, Col, Form, Row, Space } from "antd";
 import { useNavigate } from "react-router";
 
 const App = () => {
@@ -8,20 +9,31 @@ const App = () => {
 
     return (
         <>
+            <Row gutter={[12,12]}>
+                <Col>
+                    <Form>
+                        
+                    </Form>
+                </Col>
+            </Row>
             <Space>
                 <Button
+                    icon={<EditOutlined />}
                     onClick={() => {
                         navigate('/clf');
                     }}>差旅费报销单</Button>
                 <Button
+                    icon={<EditOutlined />}
                     onClick={() => {
                         navigate('/ccbz');
                     }}>出差补助申请</Button>
                 <Button
+                    icon={<EditOutlined />}
                     onClick={() => {
                         navigate('/fy');
                     }}>费用报销单</Button>
                 <Button
+                    icon={<EditOutlined />}
                     onClick={() => {
                         navigate('/pz');
                     }}
