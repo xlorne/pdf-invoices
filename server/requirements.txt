@@ -1,0 +1,5 @@
+pypdf===6.1.1
+PyPDF2===3.0.1
+pdfminer.six===20250506
+fastapi===0.121.1
+uvicorn===0.38.0

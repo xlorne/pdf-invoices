@@ -23,10 +23,9 @@ def extract_invoice_number(pdf_path):
         print(f"❌ 无法解析 {pdf_path}: {e}")
         return None
 
-if __name__ == "__main__":
-    folder = "/Users/lorne/Downloads/2025-10 发票/个人发票/"    # 存放电子发票的文件夹
-    pdf_files = [f for f in os.listdir(folder) if f.lower().endswith(".pdf")]
 
+def number_check(folder):
+    pdf_files = [f for f in os.listdir(folder) if f.lower().endswith(".pdf")]
     invoice_numbers = []
     for pdf in pdf_files:
         path = os.path.join(folder, pdf)
@@ -49,3 +48,10 @@ if __name__ == "__main__":
             print(d)
     else:
         print("\n✅ 未发现重复发票号码")
+    return duplicates
+
+
+if __name__ == "__main__":
+    folder = "/Users/lorne/Downloads/2025-10 发票/个人发票/"    # 存放电子发票的文件夹
+    duplicates = number_check(folder)
+    print(duplicates)

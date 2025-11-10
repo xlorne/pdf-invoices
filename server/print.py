@@ -76,13 +76,13 @@ def create_nup_pdf(
     print(f"✅ PDF {cols}x{rows} 合并完成：{output_pdf_path}")
 
 
-# ==== 示例调用 ====
-if __name__ == "__main__":
-    input_file = "all_invoices.pdf"
-
+def print_nup_pdf(
+    input_file,
+    output_file,
+):
     # ✅ 自定义不同布局：
     configs = [
-        ((2, 2), "print_output.pdf"),
+        ((2, 2), output_file),
     ]
 
     for grid, out_name in configs:
@@ -97,3 +97,7 @@ if __name__ == "__main__":
             )
         else:
             print(f"❌ 输入文件 {input_file} 不存在！")
+
+# ==== 示例调用 ====
+if __name__ == "__main__":
+    print_nup_pdf(input_file="/Users/lorne/developer/github/python/pdf-invoices/server/all_invoices.pdf",output_file="print_output.pdf" )

@@ -27,8 +27,8 @@ def merge_pdfs(input_folder, output_file):
 
 if __name__ == "__main__":
     # === 你可以修改下面这两行 ===
-    input_folder = "/Users/lorne/Downloads/2025-10 发票/个人发票/"           # 存放电子发票的文件夹
-    output_file = "./all_invoices.pdf"  # 合并后的输出文件名
+    input_folder = "/Users/lorne/Downloads/2025-10 发票/出差补助"           # 存放电子发票的文件夹
+    output_file = "all_invoices.pdf"  # 合并后的输出文件名
 
     merge_pdfs(input_folder, output_file)
 
