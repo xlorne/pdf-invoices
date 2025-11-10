@@ -3,7 +3,7 @@ import type React from "react";
 
 
 interface PZFormProps {
-    form: FormInstance;
+    form: FormInstance<any>;
 }
 
 const PZForm: React.FC<PZFormProps> = (props) => {

@@ -71,7 +71,7 @@ const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
 
 
 interface CLFFormProps {
-    form: FormInstance;
+    form: FormInstance<any>;
 }
 
 const CLFForm: React.FC<CLFFormProps> = (props) => {
@@ -92,7 +92,7 @@ const CLFForm: React.FC<CLFFormProps> = (props) => {
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item name="desc" label="出差事由">
+                    <Form.Item name="desc" layout="vertical" label="出差事由" >
                         <Input.TextArea />
                     </Form.Item>
                 </Col>

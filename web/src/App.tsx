@@ -1,5 +1,5 @@
 import { EditOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Row, Space } from "antd";
+import { Button, Divider, Space } from "antd";
 import { useNavigate } from "react-router";
 
 const App = () => {
@@ -8,14 +8,8 @@ const App = () => {
     document.title = '费用报销填写单';
 
     return (
-        <>
-            <Row gutter={[12,12]}>
-                <Col>
-                    <Form>
-                        
-                    </Form>
-                </Col>
-            </Row>
+        <div>
+            <Divider>表单操作</Divider>
             <Space>
                 <Button
                     icon={<EditOutlined />}
@@ -39,7 +33,7 @@ const App = () => {
                     }}
                 >票证粘贴单</Button>
             </Space>
-        </>
+        </div>
     );
 };
 

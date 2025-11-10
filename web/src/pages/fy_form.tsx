@@ -4,7 +4,7 @@ import React from "react";
 
 
 interface FYFormProps {
-    form: FormInstance;
+    form: FormInstance<any>;
 }
 
 

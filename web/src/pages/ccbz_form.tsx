@@ -2,7 +2,7 @@ import { Col, DatePicker, Form, Input, Radio, Row, type FormInstance } from "ant
 import type React from "react";
 
 interface CCBZFormProps {
-    form: FormInstance;
+    form: FormInstance<any>;
 }
 
 const CCBZForm: React.FC<CCBZFormProps> = (props) => {
