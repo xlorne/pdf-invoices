@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import styles from './fy.modules.css';
-import { Button, Col, Divider, Flex, Form, Input, message, Modal, Row, Select } from "antd";
+import { Button, Col, Divider, Flex, Form, Input, message, Modal, Row, Select, Space } from "antd";
 import { numberToChineseRMB } from "../utils/money";
-import dayjs from "dayjs";
-import { PlusCircleOutlined } from "@ant-design/icons";
-
-
+import { EditOutlined, HomeOutlined, PlusCircleOutlined, PrinterOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 interface BodyFormItemProps {
     number: number;
@@ -81,14 +79,11 @@ const FYPage = () => {
     const [visible, setVisible] = useState(false);
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
-
+    const navigate = useNavigate();
 
     document.title = '费用报销单';
 
-    const currentDate = dayjs().format('YYYY年MM月DD日');
-
     const [maxNumber, setMaxNumber] = React.useState(1);
-
 
     const summary = () => {
         let total = 0;
@@ -165,9 +160,37 @@ const FYPage = () => {
                 </Form>
             </Modal>
 
-            <div onClick={() => {
-                setVisible(true);
-            }} className={styles.header}>费用报销单</div>
+
+            <Space>
+                <Button
+                    className={styles.print_hidden}
+                    icon={<HomeOutlined />}
+                    onClick={() => {
+                        navigate("/");
+                    }}>
+                    首页
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<EditOutlined />}
+                    onClick={() => {
+                        setVisible(true);
+                    }}>
+                    编辑
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<PrinterOutlined />}
+                    onClick={() => {
+                        window.print();
+                    }}>
+                    打印
+                </Button>
+            </Space>
+
+            <div className={styles.header}>费用报销单</div>
 
             <div className={styles.top_info}>
                 <div>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styles from './clf.modules.css';
-import { Button, Col, DatePicker, Divider, Flex, Form, Input, message, Modal, Row } from "antd";
+import { Button, Col, DatePicker, Divider, Flex, Form, Input, message, Modal, Row, Space } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
-import { PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, HomeOutlined, PlusCircleOutlined, PrinterOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 
 interface BodyFormItemProps {
@@ -156,6 +157,8 @@ const CLFPage = () => {
 
     const [maxNumber, setMaxNumber] = React.useState(1);
 
+    const navigate = useNavigate();
+
     document.title = '差旅费报销单';
 
     const moneyToWords = (money: number) => {
@@ -251,9 +254,36 @@ const CLFPage = () => {
                 </Form>
             </Modal>
 
-            <div onClick={() => {
-                setVisible(true);
-            }} className={styles.header}>差旅费报销单</div>
+            <Space>
+                <Button
+                    className={styles.print_hidden}
+                    icon={<HomeOutlined />}
+                    onClick={() => {
+                        navigate("/");
+                    }}>
+                    首页
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<EditOutlined />}
+                    onClick={() => {
+                        setVisible(true);
+                    }}>
+                    编辑
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<PrinterOutlined />}
+                    onClick={() => {
+                        window.print();
+                    }}>
+                    打印
+                </Button>
+            </Space>
+
+            <div className={styles.header}>差旅费报销单</div>
 
             <div className={styles.date_section}>
                 {currentDate && (

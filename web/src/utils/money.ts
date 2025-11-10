@@ -19,22 +19,24 @@ export function numberToChineseRMB(num: number | string): string {
       if (n === 0) return '';
       let result = '';
       let unitIndex = 0;
-      let zeroNeeded = false;
-  
+      let zeroFlag = false;
+    
       while (n > 0) {
         const digit = n % 10;
         if (digit === 0) {
-          zeroNeeded = true;
+          // 仅当前面还有数字时才标记要加零
+          if (result !== '') zeroFlag = true;
         } else {
-          if (zeroNeeded) {
+          if (zeroFlag) {
             result = '零' + result;
-            zeroNeeded = false;
+            zeroFlag = false;
           }
           result = chineseDigits[digit] + chineseUnits[unitIndex] + result;
         }
-        unitIndex = (unitIndex + 1) % 4;
+        unitIndex++;
         n = Math.floor(n / 10);
       }
+    
       return result;
     }
   
@@ -89,3 +91,4 @@ export function numberToChineseRMB(num: number | string): string {
   
     return final;
   }
+

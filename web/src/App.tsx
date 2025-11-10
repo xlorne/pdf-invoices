@@ -1,20 +1,22 @@
-import {Button, Space} from "antd";
-import {useNavigate} from "react-router";
+import { Button, Space } from "antd";
+import { useNavigate } from "react-router";
 
 const App = () => {
     const navigate = useNavigate();
+
+    document.title = '费用报销填写单';
 
     return (
         <>
             <Space>
                 <Button
                     onClick={() => {
-                        navigate('/ccbz');
-                    }}>出差补助申请</Button>
-                <Button
-                    onClick={() => {
                         navigate('/clf');
                     }}>差旅费报销单</Button>
+                <Button
+                    onClick={() => {
+                        navigate('/ccbz');
+                    }}>出差补助申请</Button>
                 <Button
                     onClick={() => {
                         navigate('/fy');

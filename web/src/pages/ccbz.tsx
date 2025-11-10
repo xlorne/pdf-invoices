@@ -1,14 +1,17 @@
 import { useState } from "react";
 import styles from './ccbz.modules.css';
-import { Col, DatePicker, Form, Input, Modal, Radio, Row } from "antd";
+import { Button, Col, DatePicker, Form, Input, Modal, Radio, Row, Space } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
+import { EditOutlined, HomeOutlined, PrinterOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 const CCBZPage = () => {
 
     const [visible, setVisible] = useState(false);
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
+    const navigate = useNavigate();
 
     const currentDate = dayjs().format('YYYY年MM月DD日');
 
@@ -103,9 +106,37 @@ const CCBZPage = () => {
                 </Form>
             </Modal>
 
-            <div onClick={() => {
-                setVisible(true);
-            }} className={styles.header}>出差补助申请表</div>
+            <Space>
+                <Button
+                    className={styles.print_hidden}
+                    icon={<HomeOutlined />}
+                    onClick={() => {
+                        navigate("/");
+                    }}>
+                    首页
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<EditOutlined />}
+                    onClick={() => {
+                        setVisible(true);
+                    }}>
+                    编辑
+                </Button>
+
+                <Button
+                    className={styles.print_hidden}
+                    icon={<PrinterOutlined />}
+                    onClick={() => {
+                        window.print();
+                    }}>
+                    打印
+                </Button>
+            </Space>
+
+
+            <div className={styles.header}>出差补助申请表</div>
 
             <div className={styles.date_field} contentEditable={true}>
                 申请日期: {currentDate && (<span>{currentDate}</span>)}

@@ -102,8 +102,20 @@ body {
     vertical-align: top;
 }
 
+@page {
+    size: landscape;
+    /* 横向 */
+    margin: 0;
+    /* 最小化页边距（但无法完全消除页眉页脚） */
+}
+
 @media print {
+
     body {
         print-color-adjust: exact;
+    }
+
+    .print_hidden {
+        display: none !important;
     }
 }
