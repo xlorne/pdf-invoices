@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './fy.modules.css';
-import { Checkbox, DatePicker, Form, Input, Modal, Radio } from "antd";
+import { Checkbox, Col, DatePicker, Divider, Form, Input, Modal, Radio, Row, Select } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 
@@ -9,6 +9,13 @@ const FYPage = () => {
     const [visible, setVisible] = useState(false);
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
+
+    const typeOptions = [
+        {
+            title:"项目1",
+            value:"项目1"
+        }
+    ];
 
     const currentDate = dayjs().format('YYYY年MM月DD日');
 
@@ -20,6 +27,8 @@ const FYPage = () => {
     return (
         <div>
             <Modal
+                title="费用报销单"
+                width={"80%"}
                 open={visible}
                 onCancel={() => {
                     setVisible(false);
@@ -33,44 +42,97 @@ const FYPage = () => {
                 }}
             >
                 <Form form={form}>
-                    <Form.Item name="name" label="姓名">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="department" label="部门">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="project" label="申请项目">
-                        <Radio.Group>
-                            <Radio value="1">市内出差</Radio>
-                            <Radio value="2">省内出差</Radio>
-                            <Radio value="3">省外出差</Radio>
-                            <Radio value="4">其他</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="address" label="出差地点">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="date" label="预计出差时间">
-                        <DatePicker.RangePicker />
-                    </Form.Item>
-                    <Form.Item name="days" label="共几天">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="projectName" label="项目名称">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="currentPeople" label="出差人数">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="currentDays" label="出差天数">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="currentMoneyPerDay" label="每人每天多少钱">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="money" label="出差补贴费用总计">
-                        <Input type="number" />
-                    </Form.Item>
+                    <Row gutter={[12,12]}>
+                        <Divider>项目1</Divider>
+                        <Col span={8}>
+                            <Form.Item name={"project1"} label="费用项目">
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                            <Form.Item name={"type1"} label="类别">
+                                <Select options={typeOptions}/>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={8}>
+                            <Form.Item name={"money1"} label="金额">
+                                <Input type="number"/>
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>项目2</Divider>
+                        <Col span={8}>
+                            <Form.Item name={"project2"} label="费用项目">
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                            <Form.Item name={"type2"} label="类别">
+                                <Select options={typeOptions}/>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={8}>
+                            <Form.Item name={"money2"} label="金额">
+                                <Input type="number"/>
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>项目3</Divider>
+                        <Col span={8}>
+                            <Form.Item name={"project3"} label="费用项目">
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                            <Form.Item name={"type3"} label="类别">
+                                <Select options={typeOptions}/>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={8}>
+                            <Form.Item name={"money3"} label="金额">
+                                <Input type="number"/>
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>项目4</Divider>
+                        <Col span={8}>
+                            <Form.Item name={"project4"} label="费用项目">
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                            <Form.Item name={"type4"} label="类别">
+                                <Select options={typeOptions}/>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={8}>
+                            <Form.Item name={"money4"} label="金额">
+                                <Input type="number"/>
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>项目5</Divider>
+                        <Col span={8}>
+                            <Form.Item name={"project5"} label="费用项目">
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                        <Col span={8}>
+                            <Form.Item name={"type5"} label="类别">
+                                <Select options={typeOptions}/>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={8}>
+                            <Form.Item name={"money5"} label="金额">
+                                <Input type="number"/>
+                            </Form.Item>
+                        </Col>
+                    </Row>
 
                 </Form>
             </Modal>

@@ -20,6 +20,8 @@ const CCBZPage = () => {
     return (
         <div>
             <Modal
+                title="出差补助申请表"
+                width={"80%"}
                 open={visible}
                 onCancel={() => {
                     setVisible(false);

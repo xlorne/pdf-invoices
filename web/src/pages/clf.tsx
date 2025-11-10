@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './clf.modules.css';
-import { Checkbox, DatePicker, Form, Input, Modal, Radio } from "antd";
+import { Checkbox, Col, DatePicker, Divider, Form, Input, Modal, Radio, Row } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 
@@ -20,6 +20,8 @@ const CLFPage = () => {
     return (
         <div>
             <Modal
+                title="差旅费报销单"
+                width={"85%"}
                 open={visible}
                 onCancel={() => {
                     setVisible(false);
@@ -33,45 +35,177 @@ const CLFPage = () => {
                 }}
             >
                 <Form form={form}>
-                    <Form.Item name="name" label="姓名">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="department" label="部门">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="project" label="申请项目">
-                        <Radio.Group>
-                            <Radio value="1">市内出差</Radio>
-                            <Radio value="2">省内出差</Radio>
-                            <Radio value="3">省外出差</Radio>
-                            <Radio value="4">其他</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="address" label="出差地点">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="date" label="预计出差时间">
-                        <DatePicker.RangePicker />
-                    </Form.Item>
-                    <Form.Item name="days" label="共几天">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="projectName" label="项目名称">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="currentPeople" label="出差人数">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="currentDays" label="出差天数">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="currentMoneyPerDay" label="每人每天多少钱">
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item name="money" label="出差补贴费用总计">
-                        <Input type="number" />
-                    </Form.Item>
+                    <Row gutter={[12, 12]}>
+                        <Col span={12}>
+                            <Form.Item name="name" label="姓名">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={12}>
+                            <Form.Item name="department" label="部门">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+                        <Col span={24}>
+                            <Form.Item name="desc" label="出差事由">
+                                <Input.TextArea />
+                            </Form.Item>
+                        </Col>
 
+
+                        <Divider>出差一</Divider>
+
+                        <Col span={12}>
+                            <Form.Item name="date1" label="出差时间">
+                                <DatePicker.RangePicker showTime format={"YYYY-MM-DD HH:mm"} style={{ width: '100%' }} />
+                            </Form.Item>
+                        </Col>
+                        <Col span={12}>
+                            <Form.Item name="days1" label="天数">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="from1" label="出发地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="to1" label="到达地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={5}>
+                            <Form.Item name="ccf1" label="车船费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="lgf1" label="旅馆费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="ydf1" label="邮电费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="zqf1" label="住勤费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="jtf1" label="市内交通费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>出差二</Divider>
+
+                        <Col span={12}>
+                            <Form.Item name="date2" label="出差时间">
+                                <DatePicker.RangePicker showTime format={"YYYY-MM-DD HH:mm"} style={{ width: '100%' }} />
+                            </Form.Item>
+                        </Col>
+                        <Col span={12}>
+                            <Form.Item name="days2" label="天数">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="from2" label="出发地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="to2" label="到达地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={5}>
+                            <Form.Item name="ccf2" label="车船费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="lgf2" label="旅馆费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="ydf2" label="邮电费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="zqf2" label="住勤费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="jtf2" label="市内交通费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>出差三</Divider>
+
+                        <Col span={12}>
+                            <Form.Item name="date3" label="出差时间">
+                                <DatePicker.RangePicker showTime format={"YYYY-MM-DD HH:mm"} style={{ width: '100%' }} />
+                            </Form.Item>
+                        </Col>
+                        <Col span={12}>
+                            <Form.Item name="days3" label="天数">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="from3" label="出发地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={12}>
+                            <Form.Item name="to3" label="到达地">
+                                <Input />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={5}>
+                            <Form.Item name="ccf3" label="车船费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="lgf3" label="旅馆费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="ydf3" label="邮电费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={5}>
+                            <Form.Item name="zqf3" label="住勤费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="jtf3" label="市内交通费">
+                                <Input type="number" />
+                            </Form.Item>
+                        </Col>
+                    </Row>
                 </Form>
             </Modal>
 
@@ -217,13 +351,13 @@ const CLFPage = () => {
                         <div className={styles.signature_label}></div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
             <div className={styles.left_content}>
                 附单据 &nbsp;&nbsp;&nbsp;&nbsp; 张
             </div>
-            
+
         </div>
     );
 };
