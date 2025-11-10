@@ -1,0 +1,11 @@
+services:
+  invoices-server:
+    image: invoices-server-image
+    container_name: invoices-server
+    working_dir: /app
+    volumes:
+      - ./server:/app/
+    command: uvicorn main:app --reload --host 0.0.0.0
+    ports:
+      - "8000:8000"
+    restart: always

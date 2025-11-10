@@ -9,8 +9,14 @@ from number import number_check
 from margin import merge_pdfs
 from print import print_nup_pdf
 
-if not os.path.exists("./static"):
-    os.mkdir('./static')
+static_folder = './static'
+if not os.path.exists(static_folder):
+    os.mkdir(static_folder)
+
+pdf_folder = './pdfs'
+if not os.path.exists(pdf_folder):
+    os.mkdir(pdf_folder)
+
 
 app = FastAPI()
 
@@ -25,43 +31,36 @@ app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), na
 async def read_index():
     return FileResponse(os.path.join(BASE_DIR, "static", "index.html"))
 
-@app.get("/hello")
-async def hello_world():
+@app.get("/api/info")
+async def info():
     return {
-        "message": "Hello World"
+        "folder": pdf_folder
     }
 
-@app.get("/summer")
-async def pdf_summer(pdf_folder:str):
+@app.get("/api/summer")
+async def pdf_summer():
     total_amount = summer(pdf_folder)
     return {
         "total_amount": '{0:.2f}'.format(total_amount),
     }
 
-@app.get("/summer")
-async def pdf_summer(pdf_folder:str):
-    total_amount = summer(pdf_folder)
-    return {
-        "total_amount": '{0:.2f}'.format(total_amount),
-    }
-
-@app.get("/check")
-async def pdf_number_check(pdf_folder:str):
+@app.get("/api/check")
+async def pdf_number_check():
     list = number_check(pdf_folder)
     return {
         "list": list,
     }
 
-@app.get("/margin")
-async def pdf_margin(pdf_folder:str,output_file:str):
-    merge_pdfs(pdf_folder, output_file)
+@app.get("/api/margin")
+async def pdf_margin():
+    merge_pdfs(pdf_folder, 'all_invoices.pdf')
     return {
         "success": True,
     }
 
-@app.get("/print")
-async def pdf_print(input_file:str,output_file:str):
-    print_nup_pdf(input_file, output_file)
+@app.get("/api/print")
+async def pdf_print():
+    print_nup_pdf('all_invoices.pdf', 'print_output.pdf')
     return {
         "success": True,
     }

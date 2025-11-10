@@ -1,6 +1,7 @@
 import { EditOutlined } from "@ant-design/icons";
 import { Button, Divider, Space } from "antd";
 import { useNavigate } from "react-router";
+import PDFPanel from "./components/pdf";
 
 const App = () => {
     const navigate = useNavigate();
@@ -32,6 +33,11 @@ const App = () => {
                         navigate('/pz');
                     }}
                 >票证粘贴单</Button>
+            </Space>
+
+            <Divider>发票操作</Divider>
+            <Space>
+                <PDFPanel/>
             </Space>
         </div>
     );
