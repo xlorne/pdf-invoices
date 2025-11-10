@@ -13,15 +13,15 @@ const App = () => {
                     }}>出差补助申请</Button>
                 <Button
                     onClick={() => {
-                        navigate('/ccbz');
+                        navigate('/clf');
                     }}>差旅费报销单</Button>
                 <Button
                     onClick={() => {
-                        navigate('/ccbz');
+                        navigate('/fy');
                     }}>费用报销单</Button>
                 <Button
                     onClick={() => {
-                        navigate('/ccbz');
+                        navigate('/pz');
                     }}
                 >票证粘贴单</Button>
             </Space>

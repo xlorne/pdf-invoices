@@ -1,0 +1,103 @@
+body {
+    font-family: "SimSun", "宋体", serif;
+}
+
+.form_container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.date_section {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.mtable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.mtable th, .mtable td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.vertical_text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    padding: 5px;
+}
+
+.section_header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub_header {
+    font-weight: bold;
+}
+
+
+.amount_column {
+    width: 80px;
+}
+
+.signature_area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.signature_box {
+    text-align: center;
+    width: 20%;
+    padding: 10px;
+}
+
+.signature_label {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.foot_content{
+    position: absolute;
+    right: 50px;
+    width: 70%;
+    top: 55%;
+}
+
+.left_content{
+    position: absolute;
+    top: 200px;
+    right: -5px;
+    transform: rotate(90deg);
+    font-size: 12px;
+}
+
+/* 修正：左侧竖排文字只占第一列，不跨行 */
+.vertical_cell {
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    width: 5px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    white-space: pre;
+    text-align: center;
+    vertical-align: top;
+}

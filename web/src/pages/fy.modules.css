@@ -1,0 +1,103 @@
+body {
+    font-family: SimSun, 宋体, serif;
+    margin: 40px;
+    background-color: #f9f9f9;
+}
+
+.header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.top_info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.top_info span {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.mtable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 14px;
+}
+
+.mtable th, .mtable td {
+    border: 1px solid black;
+    padding: 6px;
+    text-align: center;
+}
+
+.input_line {
+    display: inline-block;
+    width: 80px;
+    border-bottom: 1px solid black;
+    margin: 0 3px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.input_wide {
+    width: 120px;
+}
+
+
+.footer_signature {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.amount_header td {
+    padding: 2px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.currency_symbol {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.money_data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.money_title {
+    display: flex;
+    width: 30vw;
+}
+
+.money_content {
+    display: flex;
+    width: 60vw;
+}
+
+.digit {
+    width: 40px;
+    text-align: center;
+}
+
+/* 修正：左侧竖排文字只占第一列，不跨行 */
+.vertical_cell {
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    width: 5px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    white-space: pre;
+    text-align: center;
+    vertical-align: top;
+}
