@@ -156,6 +156,7 @@ const CLFPage = () => {
 
     const [maxNumber, setMaxNumber] = React.useState(1);
 
+    document.title = '差旅费报销单';
 
     const moneyToWords = (money: number) => {
         return numberToChineseRMB(money);
@@ -168,7 +169,7 @@ const CLFPage = () => {
         const zqf = summary('zqf');
         const jtf = summary('jtf');
         const total = ccf + lgf + ydf + zqf + jtf;
-        return Number.parseFloat(total).toFixed(2);
+        return total.toFixed(2);
     }
 
     const summary = (key: string) => {
@@ -179,7 +180,7 @@ const CLFPage = () => {
                 total += Number.parseFloat(value);
             }
         }
-        return total.toFixed(2);
+        return total;
     }
 
     return (
@@ -292,12 +293,24 @@ const CLFPage = () => {
                 </tr>
 
                 <tr>
-                    <td className={styles.sub_header}>日期</td>
-                    <td className={styles.sub_header}>时间</td>
-                    <td className={styles.sub_header}>地点</td>
-                    <td className={styles.sub_header}>日期</td>
-                    <td className={styles.sub_header}>时间</td>
-                    <td className={styles.sub_header}>地点</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>日期</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>时间</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>地点</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>日期</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>时间</td>
+                    <td className={styles.sub_header} style={{
+                        width: 100
+                    }}>地点</td>
                 </tr>
 
                 {
@@ -311,16 +324,18 @@ const CLFPage = () => {
                 <tr>
                     <td colspan={6} className={styles.section_header}>合 &nbsp;&nbsp;&nbsp;&nbsp; 计</td>
                     <td>{summary('days')}</td>
-                    <td>{summary('ccf')}</td>
-                    <td>{summary('lgf')}</td>
-                    <td>{summary('ydf')}</td>
-                    <td>{summary('zqf')}</td>
-                    <td>{summary('jtf')}</td>
+                    <td>{summary('ccf').toFixed(2)}</td>
+                    <td>{summary('lgf').toFixed(2)}</td>
+                    <td>{summary('ydf').toFixed(2)}</td>
+                    <td>{summary('zqf').toFixed(2)}</td>
+                    <td>{summary('jtf').toFixed(2)}</td>
                     <td colspan={2}></td>
                 </tr>
 
                 <tr>
-                    <td colspan={2} className={styles.section_header}>预领金额</td>
+                    <td colspan={2} className={styles.section_header} style={{
+                        height: 50
+                    }}>预领金额</td>
                     <td className={styles.amount_column}>¥</td>
                     <td colspan={7} className={styles.section_header}>共计金额（大写）: {moneyToWords(total())}</td>
                     <td className={styles.amount_column}>¥ </td>
@@ -330,6 +345,30 @@ const CLFPage = () => {
                 <tr>
                     <td colspan={2} className={styles.section_header}>应退金额</td>
                     <td className={styles.amount_column}>¥</td>
+                    <td colSpan={10} rowSpan={2} style={{
+                        border: 0
+                    }}>
+                        <div className={styles.foot_content}>
+                            <div className={styles.signature_area}>
+                                <div className={styles.signature_box}>
+                                    <div>部门</div>
+                                    <div className={styles.signature_label}>经理</div>
+                                </div>
+                                <div className={styles.signature_box}>
+                                    <div>财务</div>
+                                    <div className={styles.signature_label}>审核</div>
+                                </div>
+                                <div className={styles.signature_box}>
+                                    <div>企业<br />负责人</div>
+                                    <div className={styles.signature_label}></div>
+                                </div>
+                                <div className={styles.signature_box}>
+                                    <div>报<br />销<br />人</div>
+                                    <div className={styles.signature_label}></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
@@ -338,27 +377,7 @@ const CLFPage = () => {
                 </tr>
             </table>
 
-            <div className={styles.foot_content}>
-                <div className={styles.signature_area}>
-                    <div className={styles.signature_box}>
-                        <div>部门</div>
-                        <div className={styles.signature_label}>经理</div>
-                    </div>
-                    <div className={styles.signature_box}>
-                        <div>财务</div>
-                        <div className={styles.signature_label}>审核</div>
-                    </div>
-                    <div className={styles.signature_box}>
-                        <div>企业<br />负责人</div>
-                        <div className={styles.signature_label}></div>
-                    </div>
-                    <div className={styles.signature_box}>
-                        <div>报<br />销<br />人</div>
-                        <div className={styles.signature_label}></div>
-                    </div>
-                </div>
 
-            </div>
 
             <div className={styles.left_content}>
                 附单据 &nbsp;&nbsp;&nbsp;&nbsp; 张

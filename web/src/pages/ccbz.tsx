@@ -12,6 +12,8 @@ const CCBZPage = () => {
 
     const currentDate = dayjs().format('YYYY年MM月DD日');
 
+    document.title = '出差补助申请表';
+
 
     const moneyToWords = (money: number) => {
         return numberToChineseRMB(money);
@@ -68,12 +70,12 @@ const CCBZPage = () => {
                             </Form.Item>
                         </Col>
                         <Col span={8}>
-                            <Form.Item name="address" label="出差地点">
+                            <Form.Item name="days" label="共几天">
                                 <Input />
                             </Form.Item>
                         </Col>
                         <Col span={8}>
-                            <Form.Item name="days" label="共几天">
+                            <Form.Item name="address" label="出差地点">
                                 <Input />
                             </Form.Item>
                         </Col>

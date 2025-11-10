@@ -75,10 +75,9 @@ body {
 }
 
 .foot_content{
-    position: absolute;
     right: 50px;
-    width: 70%;
-    top: 55%;
+    width: 70vw;
+    height: 100px;
 }
 
 .left_content{
