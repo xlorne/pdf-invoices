@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from './pz.modules.css';
-import { Checkbox, DatePicker, Form, Input, Modal, Radio } from "antd";
+import { DatePicker, Form, Input, Modal, Radio } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 

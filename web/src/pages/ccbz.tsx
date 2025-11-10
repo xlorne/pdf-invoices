@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from './ccbz.modules.css';
-import { Checkbox, DatePicker, Form, Input, Modal, Radio } from "antd";
+import { DatePicker, Form, Input, Modal, Radio } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 
@@ -84,9 +84,9 @@ const CCBZPage = () => {
             <div className={styles.date_field} contentEditable={true}>
                 申请日期: {currentDate && (<span>{currentDate}</span>)}
                 <>
-                {!currentDate && (<>
-                    <span className="input-line"></span> 年 <span className="input-line"></span> 月 <span className="input-line"></span> 日
-                </>)  }
+                    {!currentDate && (<>
+                        <span className="input-line"></span> 年 <span className="input-line"></span> 月 <span className="input-line"></span> 日
+                    </>)}
                 </>
             </div>
 

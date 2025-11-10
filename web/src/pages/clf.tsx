@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './clf.modules.css';
-import { Button, Col, DatePicker, Divider, Flex, Form, Input, message, Modal, Radio, Row, Space } from "antd";
+import { Button, Col, DatePicker, Divider, Flex, Form, Input, message, Modal, Row } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 import { PlusCircleOutlined } from "@ant-design/icons";
@@ -161,21 +161,21 @@ const CLFPage = () => {
         return numberToChineseRMB(money);
     }
 
-    const total = ()=>{
+    const total = () => {
         const ccf = summary('ccf');
         const lgf = summary('lgf');
         const ydf = summary('ydf');
         const zqf = summary('zqf');
         const jtf = summary('jtf');
-        const total = ccf+lgf+ydf+zqf+jtf;
+        const total = ccf + lgf + ydf + zqf + jtf;
         return Number.parseFloat(total).toFixed(2);
     }
 
-    const summary = (key:string)=>{
+    const summary = (key: string) => {
         let total = 0;
-        for(let index=0;index<3;index++){
-            const value = data?.[key+(index+1)];
-            if(value){
+        for (let index = 0; index < 3; index++) {
+            const value = data?.[key + (index + 1)];
+            if (value) {
                 total += Number.parseFloat(value);
             }
         }

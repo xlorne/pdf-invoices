@@ -1,8 +1,80 @@
 import React, { useState } from "react";
 import styles from './fy.modules.css';
-import { Checkbox, Col, DatePicker, Divider, Form, Input, Modal, Radio, Row, Select } from "antd";
+import { Button, Col, Divider, Flex, Form, Input, message, Modal, Row, Select } from "antd";
 import { numberToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
+import { PlusCircleOutlined } from "@ant-design/icons";
+
+
+
+interface BodyFormItemProps {
+    number: number;
+}
+
+const typeOptions = [
+    {
+        title: "项目1",
+        value: "项目1"
+    }
+];
+
+const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
+
+    const number = props.number;
+
+    return (
+        <>
+            <Divider>项目{number}</Divider>
+            <Col span={8}>
+                <Form.Item name={"project" + number} label="费用项目">
+                    <Input />
+                </Form.Item>
+            </Col>
+            <Col span={8}>
+                <Form.Item name={"type" + number} label="类别">
+                    <Select options={typeOptions} />
+                </Form.Item>
+            </Col>
+
+            <Col span={8}>
+                <Form.Item name={"money" + number} label="金额">
+                    <Input type="number" />
+                </Form.Item>
+            </Col>
+        </>
+    )
+}
+
+
+interface BodyDetailItemProps {
+    data: any;
+    number: number;
+}
+
+const BodyDetailItem: React.FC<BodyDetailItemProps> = (props) => {
+    const data = props.data;
+    const number = props.number;
+
+    return (
+        <>
+            <td contentEditable={true}>
+                {data?.["project" + number] && (
+                    <span>{data?.["project" + number]}</span>
+                )}
+            </td>
+            <td contentEditable={true}>
+                {data?.["type" + number] && (
+                    <span>{data?.["type" + number]}</span>
+                )}
+            </td>
+            <td contentEditable={true}>
+                {data?.["money" + number] && (
+                    <span>{data?.["money" + number]}</span>
+                )}
+            </td>
+        </>
+    )
+}
 
 const FYPage = () => {
 
@@ -10,18 +82,33 @@ const FYPage = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
 
-    const typeOptions = [
-        {
-            title:"项目1",
-            value:"项目1"
-        }
-    ];
+
 
     const currentDate = dayjs().format('YYYY年MM月DD日');
 
+    const [maxNumber, setMaxNumber] = React.useState(1);
 
-    const moneyToWords = (money: number) => {
-        return numberToChineseRMB(money);
+
+    const summary = () => {
+        let total = 0;
+        for (let index = 0; index < 5; index++) {
+            const value = data?.['money' + (index + 1)];
+            if (value) {
+                total += Number.parseFloat(value);
+            }
+        }
+        return total.toFixed(2);
+    }
+
+    const total = () => {
+        let total = 0;
+        for (let index = 0; index < 5; index++) {
+            const value = data?.['money' + (index + 1)];
+            if (value) {
+                total += Number.parseFloat(value);
+            }
+        }
+        return numberToChineseRMB(total);
     }
 
     return (
@@ -42,96 +129,36 @@ const FYPage = () => {
                 }}
             >
                 <Form form={form}>
-                    <Row gutter={[12,12]}>
-                        <Divider>项目1</Divider>
-                        <Col span={8}>
-                            <Form.Item name={"project1"} label="费用项目">
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item name={"type1"} label="类别">
-                                <Select options={typeOptions}/>
-                            </Form.Item>
-                        </Col>
-
-                        <Col span={8}>
-                            <Form.Item name={"money1"} label="金额">
-                                <Input type="number"/>
-                            </Form.Item>
-                        </Col>
-
-                        <Divider>项目2</Divider>
-                        <Col span={8}>
-                            <Form.Item name={"project2"} label="费用项目">
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item name={"type2"} label="类别">
-                                <Select options={typeOptions}/>
-                            </Form.Item>
+                    <Row gutter={[12, 12]}>
+                        <Col span={24}>
+                            <Flex
+                                justify="end"
+                                align="center"
+                            >
+                                <Button
+                                    disabled={maxNumber >= 5}
+                                    icon={<PlusCircleOutlined />}
+                                    onClick={() => {
+                                        setMaxNumber(current => {
+                                            if (current + 1 > 5) {
+                                                message.error('不能超过5个项目.');
+                                                return current;
+                                            }
+                                            return current + 1;
+                                        });
+                                    }}
+                                >
+                                    添加</Button>
+                            </Flex>
                         </Col>
 
-                        <Col span={8}>
-                            <Form.Item name={"money2"} label="金额">
-                                <Input type="number"/>
-                            </Form.Item>
-                        </Col>
-
-                        <Divider>项目3</Divider>
-                        <Col span={8}>
-                            <Form.Item name={"project3"} label="费用项目">
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item name={"type3"} label="类别">
-                                <Select options={typeOptions}/>
-                            </Form.Item>
-                        </Col>
-
-                        <Col span={8}>
-                            <Form.Item name={"money3"} label="金额">
-                                <Input type="number"/>
-                            </Form.Item>
-                        </Col>
-
-                        <Divider>项目4</Divider>
-                        <Col span={8}>
-                            <Form.Item name={"project4"} label="费用项目">
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item name={"type4"} label="类别">
-                                <Select options={typeOptions}/>
-                            </Form.Item>
-                        </Col>
-
-                        <Col span={8}>
-                            <Form.Item name={"money4"} label="金额">
-                                <Input type="number"/>
-                            </Form.Item>
-                        </Col>
-
-                        <Divider>项目5</Divider>
-                        <Col span={8}>
-                            <Form.Item name={"project5"} label="费用项目">
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item name={"type5"} label="类别">
-                                <Select options={typeOptions}/>
-                            </Form.Item>
-                        </Col>
-
-                        <Col span={8}>
-                            <Form.Item name={"money5"} label="金额">
-                                <Input type="number"/>
-                            </Form.Item>
-                        </Col>
+                        {
+                            Array.from({ length: maxNumber }).map((_, number) => {
+                                return (
+                                    <BodyFormItem number={number + 1} />
+                                )
+                            })
+                        }
                     </Row>
 
                 </Form>
@@ -174,40 +201,30 @@ const FYPage = () => {
                     }} rowspan={2} contenteditable="true"></th>
                 </tr>
                 <tr>
-                    <td contenteditable="true">&nbsp;</td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <BodyDetailItem data={data} number={1} />
                 </tr>
                 <tr>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <BodyDetailItem data={data} number={2} />
                     <td colspan={2} rowspan={2}>部门经理<br />（签章）</td>
                     <td rowspan={2} contenteditable="true"></td>
                 </tr>
                 <tr>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <BodyDetailItem data={data} number={3} />
                 </tr>
                 <tr>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <BodyDetailItem data={data} number={4} />
                     <td colspan={2} rowspan={2}> 企业负责人<br />（签章）</td>
                     <td rowspan={2} contenteditable="true"></td>
                 </tr>
                 <tr>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <BodyDetailItem data={data} number={5} />
                 </tr>
                 <tr>
                     <th>报销金额合计</th>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">{summary()}</td>
                     <td colspan={2}>¥</td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">{total()}</td>
                 </tr>
                 <tr>
                     <td colspan={7}>
