@@ -1,7 +1,8 @@
 import React from "react";
 import { info, summer, check, margin, print } from "../api/pdf";
 import { ReloadOutlined, PayCircleOutlined, BlockOutlined } from "@ant-design/icons";
-import { Button, message, Space, Card } from "antd";
+import { Button, message, Space } from "antd";
+import "./pdf.css";
 
 const PDFPanel = () => {
   const [pdfFolder, setPdfFolder] = React.useState("/");
@@ -10,25 +11,31 @@ const PDFPanel = () => {
 
   const reloadInfo = () => {
     info().then((res: any) => {
-      setPdfFolder(res.data.folder);
+      if (res.status === 200) {
+        setPdfFolder(res.data.folder);
+      }
     });
   };
 
   const resummary = () => {
     summer().then((res: any) => {
-      setMoney(res.data.total_amount);
+      if (res.status === 200) {
+        setMoney(res.data?.total_amount || 0);
+      }
     });
   };
 
   const recheck = () => {
     check().then((res: any) => {
-      setDuplicates(res.data.list);
+      if (res.status === 200) {
+        setDuplicates(res.data?.list || []);
+      }
     });
   };
 
   const marginPdf = () => {
     margin().then((res: any) => {
-      if (res.data) {
+      if (res.status === 200 && res.data?.success) {
         message.success("文件已经合并到: all_invoices.pdf 文件");
       }
     });
@@ -36,7 +43,7 @@ const PDFPanel = () => {
 
   const printPdf = () => {
     print().then((res: any) => {
-      if (res.data) {
+      if (res.status === 200 && res.data?.success) {
         message.success("文件已经合并到: print_output.pdf 文件");
       }
     });
@@ -54,28 +61,26 @@ const PDFPanel = () => {
           display: "flex",
           flexDirection: "column",
           gap: 12,
-          border: "1px solid #eee",
           borderRadius: 8,
           padding: 16,
-          background: "#fafafa",
         }}
       >
-        <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 8 }}>
+        <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 8 }}>
           发票信息
         </div>
 
         <div>
-          <span style={{ color: "#112233", fontWeight: 500 }}>📂 发票文件路径：</span>
+          <span className="pdf-title">发票文件路径：</span>
           <span style={{ marginLeft: 8, color: "#333" }}>{pdfFolder}</span>
         </div>
 
         <div>
-          <span style={{ color: "#112233", fontWeight: 500 }}>💰 发票总金额：</span>
+          <span className="pdf-title">发票总金额：</span>
           <span style={{ marginLeft: 8, color: "#333" }}>{money}</span>
         </div>
 
         <div>
-          <span style={{ color: "#112233", fontWeight: 500 }}>⚠️ 重复发票税号：</span>
+          <span className="pdf-title">重复发票税号：</span>
           {duplicates.length === 0 ? (
             <span style={{ marginLeft: 8, color: "#52c41a" }}>不存在重复</span>
           ) : (
