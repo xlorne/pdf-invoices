@@ -4,7 +4,7 @@
 
 ## 依赖环境
 
-* python 3.10
+* python 3.12
 * node v20 
 * docker v18 +
 * docker-compose  v2.40 +
