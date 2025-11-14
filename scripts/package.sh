@@ -5,7 +5,7 @@ mkdir -p ./server
 
 cd ../server
 uv sync
-uv run export-lib.py
+uv run export_lib.py
 
 
 cd ../web
