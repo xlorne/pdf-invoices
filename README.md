@@ -71,6 +71,7 @@ pdf-invoices/
 
 ### 环境要求
 - Python 3.10+
+- uv 0.9 +
 - Node.js 18+ (推荐使用 pnpm)
 
 ### 后端安装
@@ -78,12 +79,12 @@ pdf-invoices/
 1. 安装 Python 依赖：
 ```bash
 cd server
-pip install -r requirements.txt
+uv sync
 ```
 
 2. 启动后端服务：
 ```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uv run main.py
 ```
 
 后端服务将在 `http://localhost:8000` 启动。
