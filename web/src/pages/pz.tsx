@@ -64,7 +64,7 @@ const PZPage = () => {
 
             <div className={styles.header} >
                 <h1 className={styles.title}>票证粘贴单</h1>
-                <div className={styles.leader_signature} contentEditable={true}>领导签字</div>
+                <div className={styles.leader_signature} >领导签字</div>
             </div>
 
             <div className={styles.line}></div>
@@ -80,7 +80,7 @@ const PZPage = () => {
                             <span>{data?.number}张</span>
                         )}
                         {!data?.number && (
-                            <span contentEditable={true}>张</span>
+                            <span >张</span>
                         )}
                     </div>
                 </div>
@@ -90,7 +90,7 @@ const PZPage = () => {
                             <span>金额:{data?.money && Number.parseFloat(data?.money).toFixed(2)}元</span>
                         )}
                         {!data?.money && (
-                            <span contentEditable={true}>金额</span>
+                            <span >金额</span>
                         )}
                     </div>
                 </div>
@@ -100,7 +100,7 @@ const PZPage = () => {
                             <span>经手人:{data?.name}</span>
                         )}
                         {!data?.name && (
-                            <span contentEditable={true}>经手人</span>
+                            <span >经手人</span>
                         )}
                     </div>
                 </div>

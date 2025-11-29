@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './ccbz.modules.css';
 import { Button, Form, Modal, Space } from "antd";
-import { numberToChineseRMB } from "../utils/money";
+import { numberMoneyToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 import { EditOutlined, HomeOutlined, PrinterOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
@@ -18,9 +18,8 @@ const CCBZPage = () => {
 
     document.title = '出差补助申请表';
 
-
     const moneyToWords = (money: number) => {
-        return numberToChineseRMB(money);
+        return numberMoneyToChineseRMB(money);
     }
 
     return (
@@ -75,7 +74,7 @@ const CCBZPage = () => {
 
             <div className={styles.header}>出差补助申请表</div>
 
-            <div className={styles.date_field} contentEditable={true}>
+            <div className={styles.date_field} >
                 申请日期: {currentDate && (<span>{currentDate}</span>)}
                 <>
                     {!currentDate && (<>
@@ -96,7 +95,7 @@ const CCBZPage = () => {
                     </th>
                     <td style={{
                         width: 500
-                    }} contentEditable={true}>
+                    }} >
                         {data?.name}
                     </td>
                     <th style={{
@@ -105,7 +104,7 @@ const CCBZPage = () => {
                     </th>
                     <td style={{
                         width: 500
-                    }} contentEditable={true}>
+                    }} >
                         {data?.department}
                     </td>
                 </tr>
@@ -122,11 +121,11 @@ const CCBZPage = () => {
                 </tr>
                 <tr>
                     <th>出差地点</th>
-                    <td colSpan={4} contentEditable={true}>{data?.address}</td>
+                    <td colSpan={4} >{data?.address}</td>
                 </tr>
                 <tr>
                     <th>预计出差时间</th>
-                    <td colSpan={4} contentEditable={true}>
+                    <td colSpan={4} >
                         {data?.date && (
                             <span>{data?.date[0].format('YYYY年MM月DD日')} 至 {data?.date[1].format('YYYY年MM月DD日')}</span>
                         )}
@@ -145,12 +144,12 @@ const CCBZPage = () => {
                 </tr>
                 <tr>
                     <th>项目名称</th>
-                    <td colSpan={4} contentEditable={true}>
+                    <td colSpan={4} >
                         {data?.projectName}
                     </td>
                 </tr>
                 <tr>
-                    <td colSpan={5} contentEditable={true}>
+                    <td colSpan={5} >
                         出差补贴费用申请：<span className="input-line">{data?.currentPeople}</span> 人 <span
                             className="input-line">{data?.currentDays}</span> 天，每人每天 <span
                                 className="input-line">{data?.currentMoneyPerDay}</span> 元，共（<span className="input-line">{data?.money}</span>）元。<br /><br />
@@ -162,14 +161,14 @@ const CCBZPage = () => {
                     </td>
                 </tr>
                 <tr>
-                    <td colSpan={3} contentEditable={true}>
+                    <td colSpan={3} >
                         部门经理意见及签字：
                         <div className="signature-line"></div>
                         <div className="date-line">年 <span className="input-line"></span> 月 <span
                             className="input-line"></span> 日
                         </div>
                     </td>
-                    <td colSpan={2} rowSpan={2} contentEditable={true}>
+                    <td colSpan={2} rowSpan={2} >
                         企业负责人签字（盖章）：
                         <div className="signature-line"></div>
                         <div className="date-line">年 <span className="input-line"></span> 月 <span
@@ -178,7 +177,7 @@ const CCBZPage = () => {
                     </td>
                 </tr>
                 <tr>
-                    <td colSpan={3} contentEditable={true}>
+                    <td colSpan={3} >
                         财务人员签字（盖章）：
                         <div className="signature-line"></div>
                         <div className="date-line">年 <span className="input-line"></span> 月 <span

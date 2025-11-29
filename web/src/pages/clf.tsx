@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './clf.modules.css';
 import { Button, Form, Modal, Space } from "antd";
-import { numberToChineseRMB } from "../utils/money";
+import { numberMoneyToChineseRMB } from "../utils/money";
 import dayjs from "dayjs";
 import { EditOutlined, HomeOutlined, PrinterOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
@@ -19,8 +19,8 @@ const BodyDetailItem: React.FC<BodyDetailItemProps> = (props) => {
 
     return (
         <tr>
-            <td contentEditable={true}>{data?.["date" + number] && data?.["date" + number][0].format('YYYY年MM月DD日')}</td>
-            <td contentEditable={true}>
+            <td >{data?.["date" + number] && data?.["date" + number][0].format('YYYY年MM月DD日')}</td>
+            <td >
                 {data?.["date" + number] && (
                     <span>{data?.["date" + number][0].format('HH时mm分')}</span>
                 )}
@@ -28,13 +28,13 @@ const BodyDetailItem: React.FC<BodyDetailItemProps> = (props) => {
                     <span>时 分</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["from" + number] && (
                     <span>{data?.["from" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>{data?.["date" + number] && data?.["date" + number][1].format('YYYY年MM月DD日')}</td>
-            <td contentEditable={true}>
+            <td >{data?.["date" + number] && data?.["date" + number][1].format('YYYY年MM月DD日')}</td>
+            <td >
                 {data?.["date" + number] && (
                     <span>{data?.["date" + number][1].format('HH时mm分')}</span>
                 )}
@@ -42,37 +42,37 @@ const BodyDetailItem: React.FC<BodyDetailItemProps> = (props) => {
                     <span>时 分</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["to" + number] && (
                     <span>{data?.["to" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["days" + number] && (
                     <span>{data?.["days" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["ccf" + number] && (
                     <span>{data?.["ccf" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["lgf" + number] && (
                     <span>{data?.["lgf" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["ydf" + number] && (
                     <span>{data?.["ydf" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["zqf" + number] && (
                     <span>{data?.["zqf" + number]}</span>
                 )}
             </td>
-            <td contentEditable={true}>
+            <td >
                 {data?.["jtf" + number] && (
                     <span>{data?.["jtf" + number]}</span>
                 )}
@@ -97,7 +97,7 @@ const CLFPage = () => {
     document.title = '差旅费报销单';
 
     const moneyToWords = (money: number) => {
-        return numberToChineseRMB(money);
+        return numberMoneyToChineseRMB(money);
     }
 
     const total = () => {
@@ -177,7 +177,7 @@ const CLFPage = () => {
                     <span>{currentDate}</span>
                 )}
                 {!currentDate && (
-                    <span contentEditable={true}>年 &nbsp;&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp; 日</span>
+                    <span >年 &nbsp;&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp; 日</span>
                 )}
             </div>
 
@@ -188,13 +188,13 @@ const CLFPage = () => {
             <table className={styles.mtable}>
                 <tr>
                     <td colspan={2} className={styles.section_header}>工作部门</td>
-                    <td colspan={5} contentEditable={true}>{data?.department}</td>
+                    <td colspan={5} >{data?.department}</td>
                     <td rowspan={2} className={styles.section_header}>出差事由</td>
-                    <td colspan={7} rowspan={2} contentEditable={true}>{data?.desc}</td>
+                    <td colspan={7} rowspan={2} >{data?.desc}</td>
                 </tr>
                 <tr>
                     <td colspan={2} className={styles.section_header}>姓 &nbsp;&nbsp;&nbsp;&nbsp; 名</td>
-                    <td colspan={5} contentEditable={true}>{data?.name}</td>
+                    <td colspan={5} >{data?.name}</td>
                 </tr>
 
                 <tr>
