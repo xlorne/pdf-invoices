@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from './fy.modules.css';
-import {Button, Form, Modal, Space} from "antd";
-import {numberToCustomChineseRMB} from "../utils/money";
-import {EditOutlined, HomeOutlined, PrinterOutlined} from "@ant-design/icons";
-import {useNavigate} from "react-router";
+import { Button, Form, Modal, Space } from "antd";
+import { numberToCustomChineseRMB } from "../utils/money";
+import { EditOutlined, HomeOutlined, PrinterOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 import FYForm from "./fy_form";
+import dayjs from "dayjs";
 
 interface BodyDetailItemProps {
     data: any;
@@ -17,17 +18,17 @@ const BodyDetailItem: React.FC<BodyDetailItemProps> = (props) => {
 
     return (
         <>
-            <td style={{height:20}}>
+            <td style={{ height: 20 }}>
                 {data?.["project" + number] && (
                     <span>{data?.["project" + number]}</span>
                 )}
             </td>
-            <td style={{height:20}}>
+            <td style={{ height: 20 }}>
                 {data?.["type" + number] && (
                     <span>{data?.["type" + number]}</span>
                 )}
             </td>
-            <td style={{height:20}}>
+            <td style={{ height: 20 }}>
                 {data?.["money" + number] && (
                     <span>{data?.["money" + number]}</span>
                 )}
@@ -42,6 +43,7 @@ const FYPage = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
     const navigate = useNavigate();
+    const currentDate = dayjs().format('YYYY年MM月DD日');
 
     document.title = '费用报销单';
 
@@ -84,14 +86,14 @@ const FYPage = () => {
                     setVisible(false);
                 }}
             >
-                <FYForm form={form}/>
+                <FYForm form={form} />
             </Modal>
 
 
             <Space>
                 <Button
                     className={styles.print_hidden}
-                    icon={<HomeOutlined/>}
+                    icon={<HomeOutlined />}
                     onClick={() => {
                         navigate("/");
                     }}>
@@ -100,7 +102,7 @@ const FYPage = () => {
 
                 <Button
                     className={styles.print_hidden}
-                    icon={<EditOutlined/>}
+                    icon={<EditOutlined />}
                     onClick={() => {
                         setVisible(true);
                     }}>
@@ -109,7 +111,7 @@ const FYPage = () => {
 
                 <Button
                     className={styles.print_hidden}
-                    icon={<PrinterOutlined/>}
+                    icon={<PrinterOutlined />}
                     onClick={() => {
                         window.print();
                     }}>
@@ -122,7 +124,12 @@ const FYPage = () => {
             <div className={styles.top_info}>
                 <div>
                     <span>报销日期：</span>
-                    <span><span> 年 </span> <span>月 </span> <span> 日</span></span>
+                    {currentDate && (
+                        <span>{currentDate}</span>
+                    )}
+                    {!currentDate && (
+                        <span >年 &nbsp;&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp; 日</span>
+                    )}
                 </div>
                 <div>
                     <span>附件 </span><span> &nbsp; 张</span>
@@ -130,7 +137,7 @@ const FYPage = () => {
             </div>
 
             <div className={styles.vertical_cell}>
-                <br/>壹<br/>贰<br/>叁<br/>肆<br/>伍<br/>陆<br/>柒<br/>捌<br/>玖<br/>拾<br/>佰<br/>仟<br/>万<br/>元<br/>角<br/>分<br/>整
+                <br />壹<br />贰<br />叁<br />肆<br />伍<br />陆<br />柒<br />捌<br />玖<br />拾<br />佰<br />仟<br />万<br />元<br />角<br />分<br />整
             </div>
 
             <table className={styles.mtable}>
@@ -149,30 +156,30 @@ const FYPage = () => {
                     </th>
                     <th style={{
                         width: 200
-                    }} rowspan={2} colspan={2}>报销人<br/>（签章）
+                    }} rowspan={2} colspan={2}>报销人<br />（签章）
                     </th>
                     <th style={{
                         width: 200
                     }} rowspan={2}></th>
                 </tr>
                 <tr>
-                    <BodyDetailItem data={data} number={1}/>
+                    <BodyDetailItem data={data} number={1} />
                 </tr>
                 <tr>
-                    <BodyDetailItem data={data} number={2}/>
-                    <td colspan={2} rowspan={2}>部门经理<br/>（签章）</td>
+                    <BodyDetailItem data={data} number={2} />
+                    <td colspan={2} rowspan={2}>部门经理<br />（签章）</td>
                     <td rowspan={2}></td>
                 </tr>
                 <tr>
-                    <BodyDetailItem data={data} number={3}/>
+                    <BodyDetailItem data={data} number={3} />
                 </tr>
                 <tr>
-                    <BodyDetailItem data={data} number={4}/>
-                    <td colspan={2} rowspan={2}> 企业负责人<br/>（签章）</td>
+                    <BodyDetailItem data={data} number={4} />
+                    <td colspan={2} rowspan={2}> 企业负责人<br />（签章）</td>
                     <td rowspan={2}></td>
                 </tr>
                 <tr>
-                    <BodyDetailItem data={data} number={5}/>
+                    <BodyDetailItem data={data} number={5} />
                 </tr>
                 <tr>
                     <th>报销金额合计</th>
