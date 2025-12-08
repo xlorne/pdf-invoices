@@ -93,8 +93,7 @@ export function numberMoneyToChineseRMB(num: number | string): string {
 }
 
 
-// 自定义单位标签，从高到低：百万、十万、万、千、百、十、个
-const customUnits = ['佰', '拾', '万', '仟', '佰', '拾', '圆'];
+const customUnits = ['佰', '拾', '万', '仟', '佰', '拾', '圆']; // 7位：百万到个
 
 export function numberToCustomChineseRMB(num: number | string): string {
     if (typeof num === 'string') {
@@ -107,47 +106,54 @@ export function numberToCustomChineseRMB(num: number | string): string {
     const integerPart = Math.floor(num);
     const decimalPart = Math.round((num - integerPart) * 100);
 
-    // 填充整数部分为7位（百万到个位）
     let intStr = integerPart.toString().padStart(7, '0');
     if (intStr.length > 7) {
         throw new Error('整数部分超过7位');
     }
 
     let result = '';
+    let hasNonZero = false; // 标记是否已遇到第一个非零数字
 
-    // 处理整数7位
     for (let i = 0; i < 7; i++) {
         const digit = parseInt(intStr[i], 10);
         const unit = customUnits[i];
-        if (digit === 0) {
-            result += ` ⊗ ${unit}`;
+
+        if (!hasNonZero) {
+            if (digit === 0) {
+                result += ` ⊗ ${unit}`;
+            } else {
+                result += ` ${chineseDigits[digit]} ${unit}`;
+                hasNonZero = true;
+            }
         } else {
-            result += ` ${chineseDigits[digit]} ${unit}`;
+            // 已进入有效数字段
+            if (digit === 0) {
+                result += ` 零 ${unit}`;
+            } else {
+                result += ` ${chineseDigits[digit]} ${unit}`;
+            }
         }
     }
 
-    // 处理小数：角分
+    // 小数部分：始终显示（角、分）
     const jiao = Math.floor(decimalPart / 10);
     const fen = decimalPart % 10;
 
     let decimalStr = '';
     if (jiao === 0 && fen === 0) {
-        decimalStr = '零 角 零 分';
+        decimalStr = ' 零 角 零 分';
     } else {
         if (jiao === 0) {
-            decimalStr += '零 角';
+            decimalStr += ' 零 角';
         } else {
             decimalStr += ` ${chineseDigits[jiao]} 角`;
         }
         if (fen === 0) {
-            // 如果角存在，分0时不显示？但你示例中 0.05 显示“零角伍分”
-            // 所以角为0时显示“零角”，分永远显示
             decimalStr += ' 零 分';
         } else {
             decimalStr += ` ${chineseDigits[fen]} 分`;
         }
     }
 
-    result += decimalStr + ' ¥';
-    return result;
+    return result + decimalStr + ' ¥';
 }

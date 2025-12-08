@@ -24,51 +24,51 @@ const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
             </Col>
             <Col span={12}>
                 <Form.Item name={"days" + number} label="天数">
-                    <Input type="number" />
+                    <Input type="number" placeholder="请填写出差的实际天数" />
                 </Form.Item>
             </Col>
 
             <Col span={12}>
                 <Form.Item name={"from" + number} label="出发地">
-                    <Input />
+                    <Input placeholder="请填出发地" />
                 </Form.Item>
             </Col>
 
             <Col span={12}>
                 <Form.Item name={"to" + number} label="到达地">
-                    <Input />
+                    <Input placeholder="请填到达地" />
                 </Form.Item>
             </Col>
 
             <Col span={5}>
-                <Form.Item name={"ccf" + number} label="车船费">
-                    <Input type="number" />
+                <Form.Item name={"ccf" + number} label="车船费" tooltip="填写车票相关费用">
+                    <Input type="number" placeholder="请填写车船费" />
                 </Form.Item>
             </Col>
             <Col span={5}>
-                <Form.Item name={"lgf" + number} label="旅馆费">
-                    <Input type="number" />
+                <Form.Item name={"lgf" + number} label="旅馆费" tooltip="填写酒店相关费用">
+                    <Input type="number" placeholder="请填写旅馆费" />
                 </Form.Item>
             </Col>
             <Col span={5}>
-                <Form.Item name={"ydf" + number} label="邮电费">
-                    <Input type="number" />
+                <Form.Item name={"ydf" + number} label="邮电费" >
+                    <Input type="number" placeholder="请填写邮电费" />
                 </Form.Item>
             </Col>
             <Col span={5}>
-                <Form.Item name={"zqf" + number} label="住勤费">
-                    <Input type="number" />
+                <Form.Item name={"zqf" + number} label="住勤费" tooltip="填写出差补助相关费用">
+                    <Input type="number" placeholder="请填写住勤费" />
                 </Form.Item>
             </Col>
             <Col span={4}>
-                <Form.Item name={"jtf" + number} label="市内交通费">
-                    <Input type="number" />
+                <Form.Item name={"jtf" + number} label="市内交通费" tooltip="填写打车补助相关费用，若发票时间不在出差时间范围内需填写为0，然后单独填写费用报销单">
+                    <Input type="number" placeholder="请填写市内交通费" />
                 </Form.Item>
             </Col>
         </>
     )
 }
-
+/*  */
 
 interface CLFFormProps {
     form: FormInstance<any>;
@@ -82,18 +82,18 @@ const CLFForm: React.FC<CLFFormProps> = (props) => {
         <Form form={form}>
             <Row gutter={[12, 12]}>
                 <Col span={12}>
-                    <Form.Item name="name" label="姓名">
-                        <Input />
+                    <Form.Item name="name" label="姓名" tooltip="线下填写">
+                        <Input disabled={true} placeholder="请输入姓名" />
                     </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <Form.Item name="department" label="部门">
-                        <Input />
+                    <Form.Item name="department" label="部门" tooltip="不需要填写">
+                        <Input disabled={true} placeholder="请输入部门" />
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item name="desc" layout="vertical" label="出差事由" >
-                        <Input.TextArea />
+                    <Form.Item name="desc" layout="vertical" label="出差事由" tooltip="不需要填写" >
+                        <Input.TextArea disabled={true} placeholder="请输入出差事由" />
                     </Form.Item>
                 </Col>
 

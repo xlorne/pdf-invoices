@@ -1,5 +1,5 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { Button, Col, Divider, Flex, Form, Input, message, Row, type FormInstance } from "antd";
+import { Button, Col, Divider, Flex, Form, Input, message, Row, Select, type FormInstance } from "antd";
 import React from "react";
 
 
@@ -20,19 +20,73 @@ const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
         <>
             <Divider>项目{number}</Divider>
             <Col span={8}>
-                <Form.Item name={"project" + number} label="费用项目">
-                    <Input />
+                <Form.Item
+                    name={"project" + number}
+                    label="费用项目"
+                    tooltip="不需要填写"
+                >
+                    <Input disabled={true} />
                 </Form.Item>
             </Col>
             <Col span={8}>
-                <Form.Item name={"type" + number} label="类别">
-                    <Input/>
+                <Form.Item
+                    name={"type" + number}
+                    label="类别"
+                >
+                    <Select
+                        placeholder="请选择费用类型"
+                        options={[
+                            {
+                                label: '住宿费',
+                                value: '住宿费'
+                            },
+                            {
+                                label: '火车票费',
+                                value: '火车票费'
+                            },
+                            {
+                                label: '飞机票费',
+                                value: '飞机票费'
+                            },
+                            {
+                                label: '火车票费',
+                                value: '火车票费'
+                            },
+                            {
+                                label: '汽车票费',
+                                value: '汽车票费'
+                            },
+                            {
+                                label: '出差补贴',
+                                value: '出差补贴'
+                            },
+                            {
+                                label: '油票补贴',
+                                value: '油票补贴'
+                            },
+                            {
+                                label: '打车补贴',
+                                value: '打车补贴'
+                            },
+                            {
+                                label: '探亲补贴',
+                                value: '探亲补贴'
+                            },
+                            {
+                                label: '差旅费',
+                                value: '差旅费'
+                            },
+                        ]}
+                    />
                 </Form.Item>
             </Col>
 
             <Col span={8}>
                 <Form.Item name={"money" + number} label="金额">
-                    <Input type="number" />
+                    <Input
+                        type="number"
+                         placeholder="请输入费用金额"
+                    />
                 </Form.Item>
             </Col>
         </>
