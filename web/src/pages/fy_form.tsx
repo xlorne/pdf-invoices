@@ -49,10 +49,6 @@ const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
                                 value: '飞机票费'
                             },
                             {
-                                label: '火车票费',
-                                value: '火车票费'
-                            },
-                            {
                                 label: '汽车票费',
                                 value: '汽车票费'
                             },
