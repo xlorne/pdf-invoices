@@ -155,5 +155,5 @@ export function numberToCustomChineseRMB(num: number | string): string {
         }
     }
 
-    return result + decimalStr + ' ¥';
+    return result + decimalStr + ' ¥ '+ num;
 }

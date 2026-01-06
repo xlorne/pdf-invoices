@@ -3,6 +3,10 @@ body {
     margin: 40px;
 }
 
+.mtable > tr {
+    height: 70px;
+}
+
 .mtable {
     width: 100%;
     border-collapse: collapse;
@@ -49,7 +53,7 @@ body {
 /* 修正：左侧竖排文字只占第一列，不跨行 */
 .vertical_cell {
     position: absolute;
-    top: 120px;
+    top: 300px;
     left: 10px;
     width: 5px;
     font-size: 12px;

@@ -39,6 +39,6 @@ def summer(folder):
 
 
 if __name__ == "__main__":
-    folder = "/Users/lorne/Downloads/2025-10 发票/个人发票/"    # 存放电子发票的文件夹
+    folder = "/Users/lorne/Downloads/2025-11 发票/个人发票/"    # 存放电子发票的文件夹
     total_amount = summer(folder)
     print(f'发票总金额 = {total_amount:.2f}')

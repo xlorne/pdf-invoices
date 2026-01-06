@@ -4,6 +4,10 @@ body {
     background-color: #f9f9f9;
 }
 
+table > tr {
+    height: 50px;
+}
+
 .header {
     text-align: center;
     font-size: 22px;
@@ -92,7 +96,7 @@ body {
 /* 修正：左侧竖排文字只占第一列，不跨行 */
 .vertical_cell {
     position: absolute;
-    top: 65px;
+    top: 165px;
     left: 10px;
     width: 5px;
     font-size: 12px;
