@@ -13,6 +13,11 @@ const CCBZForm: React.FC<CCBZFormProps> = (props) => {
         <>
             <Form form={form}>
                 <Row gutter={[12, 12]}>
+                    <Col span={24}>
+                        <Form.Item name="created" label="填单时间" >
+                            <DatePicker placeholder="填单时间" style={{ width: "100%" }} />
+                        </Form.Item>
+                    </Col>
                     <Col span={12}>
                         <Form.Item
                             name="name"

@@ -88,7 +88,7 @@ const CLFPage = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
 
-    const currentDate = dayjs().format('YYYY年MM月DD日');
+    const currentDate = data?.['created']?dayjs(data?.['created']).format('YYYY年MM月DD日'):null;
 
     const [maxNumber, setMaxNumber] = React.useState(1);
 

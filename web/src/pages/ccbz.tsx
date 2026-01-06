@@ -14,7 +14,7 @@ const CCBZPage = () => {
     const [data, setData] = useState<any>(null);
     const navigate = useNavigate();
 
-    const currentDate = dayjs().format('YYYY年MM月DD日');
+    const currentDate = data?.['created']?dayjs(data?.['created']).format('YYYY年MM月DD日'):null;
 
     document.title = '出差补助申请表';
 
@@ -78,7 +78,7 @@ const CCBZPage = () => {
                 申请日期: {currentDate && (<span>{currentDate}</span>)}
                 <>
                     {!currentDate && (<>
-                        <span className="input-line"></span> 年 <span className="input-line"></span> 月 <span className="input-line"></span> 日
+                        <span >年 &nbsp;&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp; 日</span>
                     </>)}
                 </>
             </div>

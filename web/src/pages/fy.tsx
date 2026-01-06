@@ -43,7 +43,7 @@ const FYPage = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState<any>(null);
     const navigate = useNavigate();
-    const currentDate = dayjs().format('YYYY年MM月DD日');
+    const currentDate = data?.['created']?dayjs(data?.['created']).format('YYYY年MM月DD日'):null;
 
     document.title = '费用报销单';
 

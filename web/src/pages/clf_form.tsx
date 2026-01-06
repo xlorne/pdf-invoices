@@ -81,6 +81,11 @@ const CLFForm: React.FC<CLFFormProps> = (props) => {
     return (
         <Form form={form}>
             <Row gutter={[12, 12]}>
+                <Col span={24}>
+                    <Form.Item name="created" label="填单时间" >
+                        <DatePicker placeholder="填单时间" style={{ width: "100%" }} />
+                    </Form.Item>
+                </Col>
                 <Col span={12}>
                     <Form.Item name="name" label="姓名" tooltip="线下填写">
                         <Input disabled={true} placeholder="请输入姓名" />
@@ -96,7 +101,6 @@ const CLFForm: React.FC<CLFFormProps> = (props) => {
                         <Input.TextArea disabled={true} placeholder="请输入出差事由" />
                     </Form.Item>
                 </Col>
-
 
                 <Col span={24}>
                     <Flex

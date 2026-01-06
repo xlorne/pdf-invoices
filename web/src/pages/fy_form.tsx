@@ -1,5 +1,5 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { Button, Col, Divider, Flex, Form, Input, message, Row, Select, type FormInstance } from "antd";
+import { Button, Col, DatePicker, Divider, Flex, Form, Input, message, Row, Select, type FormInstance } from "antd";
 import React from "react";
 
 
@@ -81,7 +81,7 @@ const BodyFormItem: React.FC<BodyFormItemProps> = (props) => {
                 <Form.Item name={"money" + number} label="金额">
                     <Input
                         type="number"
-                         placeholder="请输入费用金额"
+                        placeholder="请输入费用金额"
                     />
                 </Form.Item>
             </Col>
@@ -99,6 +99,12 @@ const FYForm: React.FC<FYFormProps> = (props) => {
         <Form form={form}>
             <Row gutter={[12, 12]}>
                 <Col span={24}>
+                    <Form.Item name="created" label="填单时间" >
+                        <DatePicker placeholder="填单时间" style={{ width: "100%" }} />
+                    </Form.Item>
+                </Col>
+                <Col span={24}>
+
                     <Flex
                         justify="end"
                         align="center"
